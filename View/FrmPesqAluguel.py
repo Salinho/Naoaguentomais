@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controller.AluguelCTR import AluguelCTR
+
 
 
 class Ui_FrmPesqAluguel(object):
