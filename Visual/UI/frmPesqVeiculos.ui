@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmPesqVeiculos</class>
+ <widget class="QDialog" name="frmPesqVeiculos">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>504</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lista de Cliente</string>
+  </property>
+  <widget class="QTableWidget" name="gridVeiculos">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>150</y>
+     <width>811</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Código</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Marca</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ano</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Placa</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Alugado</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Valor da Diária</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Tipo do Veículo</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLineEdit" name="edtPesquisa">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>60</y>
+     <width>621</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cbPesquisa">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Código</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Marca</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Modelo</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Disponível</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Alugado</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>271</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Selecione o Tipo de Pesquisa:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnPesquisar">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>90</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pesquisar</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../TesteProjeto/Imagens/Lupa.png</normaloff>../../../../../../TesteProjeto/Imagens/Lupa.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTotal">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>450</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnExcluir">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>450</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Excluir</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../TesteProjeto/Imagens/delete-icon.png</normaloff>../../../../../../TesteProjeto/Imagens/delete-icon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAlterar">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>450</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Alterar</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../TesteProjeto/Imagens/editar.png</normaloff>../../../../../../TesteProjeto/Imagens/editar.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
