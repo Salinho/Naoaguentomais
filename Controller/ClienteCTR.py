@@ -1,3 +1,6 @@
+from Model.DTO.ClienteDTO import ClienteDTO
+from Model.DAO.ClienteDAO import ClienteDAO
+
 class ClienteCTR:
     def CadastrarCliente(nome, CPF, endereco, email, telefone):
         clienteDTO = ClienteDTO
@@ -22,7 +25,7 @@ class ClienteCTR:
         clienteDAO.AtualizarCliente(codigoCli, clienteDTO)
 
     def PesquisarTodosClientes():
-        clienteDAO = clienteDAO
+        clienteDAO = ClienteDAO
         query = clienteDAO.PesquisarTodosClientes()
     
         return query

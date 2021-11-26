@@ -1,3 +1,7 @@
+from Model.DAO.VeiculoDAO import VeiculoDAO
+from Model.DTO.VeiculoDTO import VeiculoDTO
+
+
 class VeiculoCTR:
     def CadastrarVeiculo(modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo):
         veiculoDTO = VeiculoDTO

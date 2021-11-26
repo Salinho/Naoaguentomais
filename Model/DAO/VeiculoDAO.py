@@ -1,3 +1,7 @@
+from PyQt5.QtSql import QSqlQuery
+from DataBase.ConexaoSQL import ConexaoSQL
+
+
 class VeiculoDAO:
     def CadastrarVeiculo(veiculo):
         conn = ConexaoSQL
