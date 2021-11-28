@@ -10,17 +10,15 @@ class VeiculoDAO:
 
         query = QSqlQuery()
         query.prepare("INSERT INTO Veiculo(Modelo, Marca, AnoModelo, Placa, "
-                      "Alugado, Batido, KmAtual, ValorDiaria, Descricao, TipoVeiculo) "
-                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+                      "Alugado, KmAtual, ValorDiaria, TipoVeiculo) "
+                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
         query.addBindValue(veiculo.Modelo)
         query.addBindValue(veiculo.Marca)
         query.addBindValue(veiculo.AnoModelo)
         query.addBindValue(veiculo.Placa)
         query.addBindValue(veiculo.Alugado)
-        query.addBindValue(veiculo.Batido)
         query.addBindValue(veiculo.KmAtual)
         query.addBindValue(veiculo.ValorDiaria)
-        query.addBindValue(veiculo.Descricao)
         query.addBindValue(veiculo.TipoVeiculo)
 
         query.exec_()

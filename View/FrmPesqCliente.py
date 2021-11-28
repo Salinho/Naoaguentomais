@@ -17,7 +17,6 @@ from View.FrmCliente import Ui_frmCliente
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
         linha = self.gridCliente.currentItem()
-        linha1 = self.gridCliente.row(1)
         codigoCli = self.gridCliente.item(linha, 0).text()
         nome = self.gridCliente.item(linha, 1).text()
         cpf = self.gridCliente.item(linha, 2).text()

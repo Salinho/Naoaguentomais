@@ -9,63 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from View.FrmCliente import Ui_frmCliente
-from View.FrmPesqCliente import Ui_frmPesqCliente
-from View.FrmVeiculos import Ui_frmVeiculos
-from View.FrmPesqVeiculos import Ui_frmPesqVeiculos
-from View.FrmAluguel import Ui_FrmAluguel
-from View.FrmPesqAluguel import Ui_FrmPesqAluguel
 
 
 class Ui_FrmPrincipal(object):
-    #aluguelclick
-    def FrmAluguel_Click(self):
-        self.frmAluguel = QtWidgets.QMainWindow()
-        self.ui = Ui_FrmAluguel()
-        self.ui.setupUi(self.frmAluguel)
-        self.frmAluguel.show()
-
-    #clienteclick
-    def FrmCliente_Click(self):
-        self.frmCliente = QtWidgets.QMainWindow()
-        self.ui = Ui_frmCliente()
-        self.ui.setupUi(self.frmCliente, 'inserir', 0)
-        self.frmCliente.show()
-
-    #veiculoclick
-    def FrmVeiculo_Click(self):
-        self.frmVeiculo = QtWidgets.QMainWindow()
-        self.ui = Ui_frmVeiculos()
-        self.ui.setupUi(self.frmVeiculo, 'inserir', 0)
-        self.frmVeiculo.show()
-
-    #listar todos clientes
-    def btnListarCliente_Click(self):
-        self.frmPesqCliente = QtWidgets.QMainWindow()
-        self.ui = Ui_frmPesqCliente()
-        self.ui.setupUi(self.frmPesqCliente)
-        self.frmPesqCliente.show()
-
-    #listar todos veiculos
-    def btnListarVeiculo_Click(self):
-        self.frmPesqVeiculo = QtWidgets.QMainWindow()
-        self.ui = Ui_frmPesqVeiculos()
-        self.ui.setupUi(self.frmPesqVeiculo)
-        self.frmPesqVeiculo.show()
-    
-    #listar todos alugueis
-    def btnListarAluguel_Click(self):
-        self.frmPesqAluguel = QtWidgets.QMainWindow()
-        self.ui = Ui_FrmPesqAluguel()
-        self.ui.setupUi(self.frmPesqAluguel)
-        self.frmPesqAluguel.show()
-    
     def setupUi(self, FrmPrincipal):
         FrmPrincipal.setObjectName("FrmPrincipal")
         FrmPrincipal.setWindowModality(QtCore.Qt.NonModal)
-
-        #desablitiar
-        FrmPrincipal.setFixedSize(803, 422)
+        FrmPrincipal.resize(803, 422)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../Imagens/FrmIcon_Car.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmPrincipal.setWindowIcon(icon)
@@ -76,8 +26,6 @@ class Ui_FrmPrincipal(object):
         self.columnView = QtWidgets.QColumnView(self.centralwidget)
         self.columnView.setGeometry(QtCore.QRect(0, 0, 801, 101))
         self.columnView.setObjectName("columnView")
-
-        #btn alugar
         self.btnAlugar = QtWidgets.QPushButton(self.centralwidget)
         self.btnAlugar.setGeometry(QtCore.QRect(10, 10, 131, 81))
         self.btnAlugar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -88,10 +36,6 @@ class Ui_FrmPrincipal(object):
         self.btnAlugar.setIcon(icon1)
         self.btnAlugar.setIconSize(QtCore.QSize(40, 40))
         self.btnAlugar.setObjectName("btnAlugar")
-        #alugar click event
-        self.btnAlugar.clicked.connect(self.FrmAluguel_Click)
-
-        #cliente
         self.btnCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnCliente.setGeometry(QtCore.QRect(140, 10, 131, 81))
         self.btnCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -100,10 +44,6 @@ class Ui_FrmPrincipal(object):
         self.btnCliente.setIcon(icon2)
         self.btnCliente.setIconSize(QtCore.QSize(30, 30))
         self.btnCliente.setObjectName("btnCliente")
-        #btncliente click
-        self.btnCliente.clicked.connect(self.FrmCliente_Click)
-        
-        #botão veiculo
         self.btnVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnVeiculo.setGeometry(QtCore.QRect(270, 10, 131, 81))
         self.btnVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -112,10 +52,6 @@ class Ui_FrmPrincipal(object):
         self.btnVeiculo.setIcon(icon3)
         self.btnVeiculo.setIconSize(QtCore.QSize(40, 40))
         self.btnVeiculo.setObjectName("btnVeiculo")
-        #veiculo click
-        self.btnVeiculo.clicked.connect(self.FrmVeiculo_Click)
-
-        #listar cliente
         self.btnListCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnListCliente.setGeometry(QtCore.QRect(400, 10, 131, 81))
         self.btnListCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -125,10 +61,6 @@ class Ui_FrmPrincipal(object):
         self.btnListCliente.setIcon(icon4)
         self.btnListCliente.setIconSize(QtCore.QSize(30, 30))
         self.btnListCliente.setObjectName("btnListCliente")
-        #listar cliente click
-        self.btnListCliente.clicked.connect(self.btnListarCliente_Click)
-
-        #listar veiculo
         self.btnListVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnListVeiculo.setGeometry(QtCore.QRect(530, 10, 131, 81))
         self.btnListVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -137,10 +69,6 @@ class Ui_FrmPrincipal(object):
         self.btnListVeiculo.setIcon(icon5)
         self.btnListVeiculo.setIconSize(QtCore.QSize(30, 30))
         self.btnListVeiculo.setObjectName("btnListVeiculo")
-        #botão listar veiculo click
-        self.btnListVeiculo.clicked.connect(self.btnListarVeiculo_Click)
-
-        #listar aluguel
         self.btnListAluguel = QtWidgets.QPushButton(self.centralwidget)
         self.btnListAluguel.setGeometry(QtCore.QRect(660, 10, 131, 81))
         self.btnListAluguel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -149,10 +77,6 @@ class Ui_FrmPrincipal(object):
         self.btnListAluguel.setIcon(icon6)
         self.btnListAluguel.setIconSize(QtCore.QSize(30, 30))
         self.btnListAluguel.setObjectName("btnListAluguel")
-        #listar aluguel click
-        self.btnListAluguel.clicked.connect(self.btnListarAluguel_Click)
-
-
         self.lbImg = QtWidgets.QLabel(self.centralwidget)
         self.lbImg.setGeometry(QtCore.QRect(10, 110, 781, 301))
         self.lbImg.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -182,20 +106,20 @@ class Ui_FrmPrincipal(object):
 
     def retranslateUi(self, FrmPrincipal):
         _translate = QtCore.QCoreApplication.translate
-        FrmPrincipal.setWindowTitle(_translate("FrmPrincipal", "Locadora de Veículos", None))
-        self.btnAlugar.setText(_translate("FrmPrincipal", "Alugar Veículo", None))
-        self.btnCliente.setText(_translate("FrmPrincipal", "Cadastrar Cliente", None))
-        self.btnVeiculo.setText(_translate("FrmPrincipal", "Cadastrar Veículo", None))
-        self.btnListCliente.setText(_translate("FrmPrincipal", "Listar Clientes", None))
-        self.btnListVeiculo.setText(_translate("FrmPrincipal", "Listar Veículos", None))
-        self.btnListAluguel.setText(_translate("FrmPrincipal", "Listar Alugueis", None))
-        self.actionCliente.setText(_translate("FrmPrincipal", "Cliente", None))
-        self.actionVe_culo.setText(_translate("FrmPrincipal", "Veículo", None))
-        self.actionAlugar.setText(_translate("FrmPrincipal", "Alugar Veículo", None))
-        self.actionCliente_2.setText(_translate("FrmPrincipal", "Clientes", None))
-        self.actionVe_culos.setText(_translate("FrmPrincipal", "Veículos", None))
-        self.actionAlugueis.setText(_translate("FrmPrincipal", "Alugueis", None))
-        self.actionSair.setText(_translate("FrmPrincipal", "Sair", None))
+        FrmPrincipal.setWindowTitle(_translate("FrmPrincipal", "Locadora de Veículos"))
+        self.btnAlugar.setText(_translate("FrmPrincipal", "Alugar Veículo"))
+        self.btnCliente.setText(_translate("FrmPrincipal", "Cadastrar Cliente"))
+        self.btnVeiculo.setText(_translate("FrmPrincipal", "Cadastrar Veículo"))
+        self.btnListCliente.setText(_translate("FrmPrincipal", "Listar Clientes"))
+        self.btnListVeiculo.setText(_translate("FrmPrincipal", "Listar Veículos"))
+        self.btnListAluguel.setText(_translate("FrmPrincipal", "Listar Alugueis"))
+        self.actionCliente.setText(_translate("FrmPrincipal", "Cliente"))
+        self.actionVe_culo.setText(_translate("FrmPrincipal", "Veículo"))
+        self.actionAlugar.setText(_translate("FrmPrincipal", "Alugar Veículo"))
+        self.actionCliente_2.setText(_translate("FrmPrincipal", "Clientes"))
+        self.actionVe_culos.setText(_translate("FrmPrincipal", "Veículos"))
+        self.actionAlugueis.setText(_translate("FrmPrincipal", "Alugueis"))
+        self.actionSair.setText(_translate("FrmPrincipal", "Sair"))
 
 
 if __name__ == "__main__":

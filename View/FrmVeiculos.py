@@ -52,11 +52,10 @@ class Ui_frmVeiculos(object):
         #VERIFICA O ESTADO INSERIR/ALTERAR PARA CHAMAR A FUNÇAO APROPRIADA
         if estado=='inserir':
             veiculo = VeiculoCTR
-            veiculo.CadastrarVeiculo(modelo, marca, anoModelo, placa, alugado,
-                                    kmAtual, valorDiaria, tipoVeiculo)
+            veiculo.CadastrarVeiculo(modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo)
 
             msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.setText("Veículo inserido com sucesso!")
             msg.setWindowTitle("Inserir Veículo")
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
