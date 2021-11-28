@@ -9,12 +9,85 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Controller.VeiculoCTR import VeiculoCTR
 
 class Ui_frmVeiculos(object):
-    def setupUi(self, frmVeiculos):
+     #PREENCHER OS CAMPOS PARA ALTERAÇÃO
+    def PreencherAlterar(self, modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo):
+        self.edtModelo.setText(modelo)
+        self.edtMarca.setText(marca)
+        self.edtAno.setText(anoModelo)
+        self.edtPlaca.setText(placa)
+        self.edtKm.setText(kmAtual)
+        self.edtDiaria.setText(valorDiaria)
+        self.edtTipo.setText(tipoVeiculo)
+
+        if alugado=='Sim':
+            self.rbAlugado.setChecked(True)
+            self.rbDisponivel.setChecked(False)
+        elif alugado=='Não':
+            self.rbDisponivel.setChecked(True)
+            self.rbAlugado.setChecked(False)
+
+
+    #CLICK BTN_SALVAR
+    def btnSalvar_Click(self, estado, codigoVeic):
+        modelo = self.edtModelo.text()
+        marca = self.edtMarca.text()
+        anoModelo = self.edtAno.text()
+        placa = self.edtPlaca.text()
+
+        if self.rbAlugado.isChecked():
+            alugado = self.rbAlugado.text()
+        elif self.rbDisponivel.isChecked():
+            alugado = self.rbDisponivel.text()
+
+
+        kmAtual = self.edtKm.text()
+        valorDiaria = self.edtDiaria.text()
+        
+        tipoVeiculo = self.edtTipo.text()
+
+
+        #VERIFICA O ESTADO INSERIR/ALTERAR PARA CHAMAR A FUNÇAO APROPRIADA
+        if estado=='inserir':
+            veiculo = VeiculoCTR
+            veiculo.CadastrarVeiculo(modelo, marca, anoModelo, placa, alugado,
+                                    kmAtual, valorDiaria, tipoVeiculo)
+
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setText("Veículo inserido com sucesso!")
+            msg.setWindowTitle("Inserir Veículo")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msg.exec_()
+        if estado=='alterar':
+            
+            veiculo = VeiculoCTR
+            veiculo.AtualizarVeiculo(codigoVeic, modelo, marca, anoModelo, placa, alugado,
+                                     kmAtual, valorDiaria, tipoVeiculo)
+
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setText("Veículo alterado com sucesso!")
+            msg.setWindowTitle("Alterar Veículo")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msg.exec_()
+
+        self.edtModelo.setText('')
+        self.edtMarca.setText('')
+        self.edtAno.setText('')
+        self.edtPlaca.setText('')
+        self.edtKm.setText('')
+        self.edtDiaria.setText('')
+        self.edtTipo.setText('')
+
+
+    def setupUi(self, frmVeiculos, estado, codigoVeic):
         frmVeiculos.setObjectName("frmVeiculos")
-        frmVeiculos.resize(543, 318)
+        
+        #desabilitar tamanho tela
+        frmVeiculos.setFixedSize(543, 318)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/View/Imagens/btnCadCli.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         frmVeiculos.setWindowIcon(icon)
@@ -77,6 +150,8 @@ class Ui_frmVeiculos(object):
         self.groupBox_2.setGeometry(QtCore.QRect(10, 230, 521, 81))
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
+
+        #botão salvar
         self.btnSalvar = QtWidgets.QPushButton(self.groupBox_2)
         self.btnSalvar.setGeometry(QtCore.QRect(400, 10, 101, 61))
         self.btnSalvar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -85,24 +160,26 @@ class Ui_frmVeiculos(object):
         self.btnSalvar.setIcon(icon1)
         self.btnSalvar.setIconSize(QtCore.QSize(35, 35))
         self.btnSalvar.setObjectName("btnSalvar")
+        #botão salvar click
+        self.btnSalvar.clicked.connect(lambda: self.btnSalvar_Click(estado, codigoVeic))
 
         self.retranslateUi(frmVeiculos)
         QtCore.QMetaObject.connectSlotsByName(frmVeiculos)
 
     def retranslateUi(self, frmVeiculos):
         _translate = QtCore.QCoreApplication.translate
-        frmVeiculos.setWindowTitle(_translate("frmVeiculos", "Cadastro de Veículos"))
-        self.label.setText(_translate("frmVeiculos", "Modelo"))
-        self.label_2.setText(_translate("frmVeiculos", "Marca"))
-        self.lbEndereco.setText(_translate("frmVeiculos", "KM Atual"))
-        self.lbEmail.setText(_translate("frmVeiculos", "Placa"))
-        self.label_3.setText(_translate("frmVeiculos", "Ano"))
-        self.groupBox_3.setTitle(_translate("frmVeiculos", "Alugado"))
-        self.rbAlugado.setText(_translate("frmVeiculos", "Sim"))
-        self.rbDisponivel.setText(_translate("frmVeiculos", "Não"))
-        self.label_4.setText(_translate("frmVeiculos", "Valor da Diária"))
-        self.label_6.setText(_translate("frmVeiculos", "Tipo de Veículo"))
-        self.btnSalvar.setText(_translate("frmVeiculos", "Salvar"))
+        frmVeiculos.setWindowTitle(_translate("frmVeiculos", "Cadastro de Veículos", None))
+        self.label.setText(_translate("frmVeiculos", "Modelo", None))
+        self.label_2.setText(_translate("frmVeiculos", "Marca", None))
+        self.lbEndereco.setText(_translate("frmVeiculos", "KM Atual", None))
+        self.lbEmail.setText(_translate("frmVeiculos", "Placa", None))
+        self.label_3.setText(_translate("frmVeiculos", "Ano", None))
+        self.groupBox_3.setTitle(_translate("frmVeiculos", "Alugado", None))
+        self.rbAlugado.setText(_translate("frmVeiculos", "Sim", None))
+        self.rbDisponivel.setText(_translate("frmVeiculos", "Não", None))
+        self.label_4.setText(_translate("frmVeiculos", "Valor da Diária", None))
+        self.label_6.setText(_translate("frmVeiculos", "Tipo de Veículo", None))
+        self.btnSalvar.setText(_translate("frmVeiculos", "Salvar", None))
 
 
 if __name__ == "__main__":

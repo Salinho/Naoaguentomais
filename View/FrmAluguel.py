@@ -391,7 +391,7 @@ class Ui_FrmAluguel(object):
         self.cbPesqVeic.setItemText(0, _translate("FrmAluguel", "Código", None))
         self.cbPesqVeic.setItemText(1, _translate("FrmAluguel", "Marca", None))
         self.cbPesqVeic.setItemText(2, _translate("FrmAluguel", "Modelo", None))
-        self.cbPesqVeic.setItemText(3, _translate("FrmAluguel", "Disponível"), None)
+        self.cbPesqVeic.setItemText(3, _translate("FrmAluguel", "Disponível", None))
         self.cbPesqVeic.setItemText(4, _translate("FrmAluguel", "Alugado", None))
         self.btnPesqVeic.setText(_translate("FrmAluguel", "Pesquisar", None))
         item = self.gridVeiculo.horizontalHeaderItem(0)

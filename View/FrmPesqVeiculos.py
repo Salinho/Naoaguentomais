@@ -9,12 +9,120 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controller.VeiculoCTR import VeiculoCTR
+
+from View.FrmVeiculos import Ui_frmVeiculos
 
 
 class Ui_frmPesqVeiculos(object):
+    def AlterarVeiculo_Click(self):
+        linha = self.gridVeiculos.currentItem().row()
+        codigoVeic = self.gridVeiculos.item(linha, 0).text()
+        modelo = self.gridVeiculos.item(linha, 1).text()
+        marca = self.gridVeiculos.item(linha, 2).text()
+        anoModelo = self.gridVeiculos.item(linha, 3).text()
+        placa = self.gridVeiculos.item(linha, 4).text()
+        alugado = self.gridVeiculos.item(linha, 5).text()
+        kmAtual = self.gridVeiculos.item(linha, 6).text()
+        valorDiaria = self.gridVeiculos.item(linha, 7).text()
+        tipoVeiculo = self.gridVeiculos.item(linha, 8).text()
+
+        self.frmVeiculos = QtWidgets.QMainWindow()
+        self.ui = Ui_frmVeiculos()
+        self.ui.setupUi(self.frmVeiculos, 'alterar', codigoVeic)
+        self.ui.PreencherAlterar(modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo)
+        self.frmVeiculos.show()
+    
+    def ExcluirVeiculo_Click(self):
+
+        linha = self.gridVeiculos.currentItem().row()
+        codigoVeic = self.gridVeiculos.item(linha, 0).text()
+
+        self.gridVeiculos.removeRow(linha)
+        veiculo = VeiculoCTR
+        veiculo.ExcluirVeiculo(codigoVeic)
+
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setText("Veículo Excluído!")
+        msg.setWindowTitle("Excluir Veiculo")
+        msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+        msg.exec_()
+
+    def PesquisarVeiculo(self, valor, tipo):
+        if (valor == '') and (tipo !='Disponível') and (tipo!='Alugado'):
+            self.PesquisarTodosVeiculos()
+        else:
+            veiculo = VeiculoCTR
+            query = veiculo.PesquisarVeiculo(valor, tipo)
+
+            while (self.gridVeiculos.rowCount() > 0):
+                self.gridVeiculos.removeRow(0)
+
+            row = 0
+            while query.next():
+                self.gridVeiculos.insertRow(row)
+                codigoVeic = QtWidgets.QTableWidgetItem(str(query.value(0)))
+                modelo = QtWidgets.QTableWidgetItem(str(query.value(1)))
+                marca = QtWidgets.QTableWidgetItem(str(query.value(2)))
+                anoModelo = QtWidgets.QTableWidgetItem(str(query.value(3)))
+                placa = QtWidgets.QTableWidgetItem(str(query.value(4)))
+                alugado = QtWidgets.QTableWidgetItem(str(query.value(5)))
+                kmAtual = QtWidgets.QTableWidgetItem(str(query.value(6)))
+                valorDiaria = QtWidgets.QTableWidgetItem(str(query.value(7)))
+                tipoVeiculo = QtWidgets.QTableWidgetItem(str(query.value(8)))
+
+                self.gridVeiculos.setItem(row, 0, codigoVeic)
+                self.gridVeiculos.setItem(row, 1, modelo)
+                self.gridVeiculos.setItem(row, 2, marca)
+                self.gridVeiculos.setItem(row, 3, anoModelo)
+                self.gridVeiculos.setItem(row, 4, placa)
+                self.gridVeiculos.setItem(row, 5, alugado)
+                self.gridVeiculos.setItem(row, 6, kmAtual)
+                self.gridVeiculos.setItem(row, 7, valorDiaria)
+                self.gridVeiculos.setItem(row, 8, tipoVeiculo)
+
+                row = row + 1
+        
+        self.edtPesquisa.setText('')
+    def PesquisarTodosVeiculos(self):
+        veiculo = VeiculoCTR
+        query = veiculo.PesquisarTodosVeiculos()
+
+        while (self.gridVeiculos.rowCount() > 0):
+            self.gridVeiculos.removeRow(0)
+
+        row = 0
+        while query.next():
+            self.gridVeiculos.insertRow(row)
+            codigoVeic = QtWidgets.QTableWidgetItem(str(query.value(0)))
+            modelo = QtWidgets.QTableWidgetItem(str(query.value(1)))
+            marca = QtWidgets.QTableWidgetItem(str(query.value(2)))
+            anoModelo = QtWidgets.QTableWidgetItem(str(query.value(3)))
+            placa = QtWidgets.QTableWidgetItem(str(query.value(4)))
+            alugado = QtWidgets.QTableWidgetItem(str(query.value(5)))
+            kmAtual = QtWidgets.QTableWidgetItem(str(query.value(6)))
+            valorDiaria = QtWidgets.QTableWidgetItem(str(query.value(7)))
+            tipoVeiculo = QtWidgets.QTableWidgetItem(str(query.value(8)))
+
+            self.gridVeiculos.setItem(row, 0, codigoVeic)
+            self.gridVeiculos.setItem(row, 1, modelo)
+            self.gridVeiculos.setItem(row, 2, marca)
+            self.gridVeiculos.setItem(row, 3, anoModelo)
+            self.gridVeiculos.setItem(row, 4, placa)
+            self.gridVeiculos.setItem(row, 5, alugado)
+            self.gridVeiculos.setItem(row, 6, kmAtual)
+            self.gridVeiculos.setItem(row, 7, valorDiaria)
+            self.gridVeiculos.setItem(row, 8, tipoVeiculo)
+
+            row = row + 1
+        
+
     def setupUi(self, frmPesqVeiculos):
         frmPesqVeiculos.setObjectName("frmPesqVeiculos")
-        frmPesqVeiculos.resize(820, 504)
+
+        #desabilitar tela
+        frmPesqVeiculos.setFixedSize(820, 504)
         self.gridVeiculos = QtWidgets.QTableWidget(frmPesqVeiculos)
         self.gridVeiculos.setGeometry(QtCore.QRect(0, 150, 811, 291))
         self.gridVeiculos.setObjectName("gridVeiculos")
@@ -34,6 +142,14 @@ class Ui_frmPesqVeiculos(object):
         self.gridVeiculos.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.gridVeiculos.setHorizontalHeaderItem(7, item)
+        #modo de seleção
+        self.gridVeiculos.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        self.gridVeiculos.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.gridVeiculos.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+
+        #edt pesquisar
         self.edtPesquisa = QtWidgets.QLineEdit(frmPesqVeiculos)
         self.edtPesquisa.setGeometry(QtCore.QRect(190, 60, 621, 20))
         self.edtPesquisa.setObjectName("edtPesquisa")
@@ -55,12 +171,19 @@ class Ui_frmPesqVeiculos(object):
         self.btnPesquisar.setGeometry(QtCore.QRect(700, 90, 111, 51))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/Lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
+        #botão pesquisar
         self.btnPesquisar.setIcon(icon)
         self.btnPesquisar.setIconSize(QtCore.QSize(30, 30))
         self.btnPesquisar.setObjectName("btnPesquisar")
+        #click pesquisar
+        self.btnPesquisar.clicked.connect(lambda: self.PesquisarVeiculo(self.edtPesquisa.text(), self.cbPesquisa.currentText()))
+
         self.lblTotal = QtWidgets.QLabel(frmPesqVeiculos)
         self.lblTotal.setGeometry(QtCore.QRect(20, 450, 111, 16))
         self.lblTotal.setObjectName("lblTotal")
+
+        #botão excluir
         self.btnExcluir = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnExcluir.setGeometry(QtCore.QRect(720, 450, 91, 51))
         icon1 = QtGui.QIcon()
@@ -68,6 +191,10 @@ class Ui_frmPesqVeiculos(object):
         self.btnExcluir.setIcon(icon1)
         self.btnExcluir.setIconSize(QtCore.QSize(30, 30))
         self.btnExcluir.setObjectName("btnExcluir")
+        #excluir click
+        self.btnExcluir.clicked.connect(lambda: self.ExcluirVeiculo_Click())
+        
+        #botão alterar
         self.btnAlterar = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnAlterar.setGeometry(QtCore.QRect(610, 450, 101, 51))
         icon2 = QtGui.QIcon()
@@ -75,37 +202,45 @@ class Ui_frmPesqVeiculos(object):
         self.btnAlterar.setIcon(icon2)
         self.btnAlterar.setIconSize(QtCore.QSize(35, 35))
         self.btnAlterar.setObjectName("btnAlterar")
+        #botão alterar click
+        self.btnAlterar.clicked.connect(lambda: self.AlterarVeiculo_Click())
 
         self.retranslateUi(frmPesqVeiculos)
         QtCore.QMetaObject.connectSlotsByName(frmPesqVeiculos)
 
+        self.PesquisarTodosVeiculos()
+
     def retranslateUi(self, frmPesqVeiculos):
         _translate = QtCore.QCoreApplication.translate
-        frmPesqVeiculos.setWindowTitle(_translate("frmPesqVeiculos", "Lista de Cliente"))
+        frmPesqVeiculos.setWindowTitle(_translate("frmPesqVeiculos", "Lista de Cliente", None))
         item = self.gridVeiculos.horizontalHeaderItem(0)
-        item.setText(_translate("frmPesqVeiculos", "Código"))
+        item.setText(_translate("frmPesqVeiculos", "Código", None))
         item = self.gridVeiculos.horizontalHeaderItem(1)
-        item.setText(_translate("frmPesqVeiculos", "Marca"))
+        item.setText(_translate("frmPesqVeiculos", "Modelo", None))
         item = self.gridVeiculos.horizontalHeaderItem(2)
-        item.setText(_translate("frmPesqVeiculos", "Ano"))
+        item.setText(_translate("frmPesqVeiculos", "Marca", None))
         item = self.gridVeiculos.horizontalHeaderItem(3)
-        item.setText(_translate("frmPesqVeiculos", "Placa"))
+        item.setText(_translate("frmPesqVeiculos", "Ano", None))
         item = self.gridVeiculos.horizontalHeaderItem(4)
-        item.setText(_translate("frmPesqVeiculos", "Alugado"))
+        item.setText(_translate("frmPesqVeiculos", "Placa", None))
         item = self.gridVeiculos.horizontalHeaderItem(5)
-        item.setText(_translate("frmPesqVeiculos", "Valor da Diária"))
+        item.setText(_translate("frmPesqVeiculos", "Alugado", None))
         item = self.gridVeiculos.horizontalHeaderItem(6)
-        item.setText(_translate("frmPesqVeiculos", "Tipo do Veículo"))
-        self.cbPesquisa.setItemText(0, _translate("frmPesqVeiculos", "Código"))
-        self.cbPesquisa.setItemText(1, _translate("frmPesqVeiculos", "Marca"))
-        self.cbPesquisa.setItemText(2, _translate("frmPesqVeiculos", "Modelo"))
-        self.cbPesquisa.setItemText(3, _translate("frmPesqVeiculos", "Disponível"))
-        self.cbPesquisa.setItemText(4, _translate("frmPesqVeiculos", "Alugado"))
-        self.label.setText(_translate("frmPesqVeiculos", "Selecione o Tipo de Pesquisa:"))
-        self.btnPesquisar.setText(_translate("frmPesqVeiculos", "Pesquisar"))
-        self.lblTotal.setText(_translate("frmPesqVeiculos", "TextLabel"))
-        self.btnExcluir.setText(_translate("frmPesqVeiculos", "Excluir"))
-        self.btnAlterar.setText(_translate("frmPesqVeiculos", "Alterar"))
+        item.setText(_translate("frmPesqVeiculos", "Quilometragem", None))
+        item = self.gridVeiculos.horizontalHeaderItem(7)
+        item.setText(_translate("frmPesqVeiculos", "Valor da Diaria", None))
+        item = self.gridVeiculos.horizontalHeaderItem(8)
+        item.setText(_translate("frmPesqVeiculos", "Tipo do Veículo", None))
+        self.cbPesquisa.setItemText(0, _translate("frmPesqVeiculos", "Código", None))
+        self.cbPesquisa.setItemText(1, _translate("frmPesqVeiculos", "Marca", None))
+        self.cbPesquisa.setItemText(2, _translate("frmPesqVeiculos", "Modelo", None))
+        self.cbPesquisa.setItemText(3, _translate("frmPesqVeiculos", "Disponível", None))
+        self.cbPesquisa.setItemText(4, _translate("frmPesqVeiculos", "Alugado", None))
+        self.label.setText(_translate("frmPesqVeiculos", "Selecione o Tipo de Pesquisa:", None))
+        self.btnPesquisar.setText(_translate("frmPesqVeiculos", "Pesquisar", None))
+        self.lblTotal.setText(_translate("frmPesqVeiculos", "TextLabel", None))
+        self.btnExcluir.setText(_translate("frmPesqVeiculos", "Excluir", None))
+        self.btnAlterar.setText(_translate("frmPesqVeiculos", "Alterar", None))
 
 
 if __name__ == "__main__":

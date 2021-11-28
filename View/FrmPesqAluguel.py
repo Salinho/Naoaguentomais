@@ -14,6 +14,93 @@ from Controller.AluguelCTR import AluguelCTR
 
 
 class Ui_FrmPesqAluguel(object):
+    def DevolverVeiculo(self):
+        linha = self.tableWidget.currentItem().row()
+        codigoAlug = self.tableWidget.item(linha, 0).text()
+        dataDevol = self.edtDevolucao.text()
+        valorMulta = self.edtMulta.text()
+        kmSaida = self.edtSaida.text()
+
+        aluguelCTR = AluguelCTR
+        aluguelCTR.DevolverVeiculo(codigoAlug, dataDevol, valorMulta, kmSaida)
+
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setText('Veiculo devolvido')
+        msg.setWindowTitle('Devovler Veículo')
+        msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+        msg.exec_()
+
+        self.edtDevolucao.setText('')
+        self.edtMulta.setText('')
+        self.edtSaida.setText('')
+
+    def PesquisarAluguel(self, valor, tipo):
+        if (valor == ''):
+            self.PesquisarTodosAluguel()
+        else:
+            aluguel = AluguelCTR
+            query = aluguel.PesquisarAluguel(valor, tipo)
+
+            while (self.tableWidget.rowCount() > 0):
+                self.tableWidget.removeRow(0)
+            
+            row = 0
+            while query.next():
+                self.tableWidget.insertRow(row)
+                codigoAlug = QtWidgets.QTableWidgetItem(str(query.value(0)))
+                nomecliente = QtWidgets.QTableWidgetItem(str(query.value(10)))
+                dataAlug = QtWidgets.QTableWidgetItem(str(query.value(1)))
+                dataPrazo = QtWidgets.QTableWidgetItem(str(query.value(2)))
+                dataDevolucao = QtWidgets.QTableWidgetItem(str(query.value(3)))
+                valorAluguel = QtWidgets.QTableWidgetItem(str(query.value(4)))
+                valorMulta = QtWidgets.QTableWidgetItem(str(query.value(5)))
+                kmEntrada = QtWidgets.QTableWidgetItem(str(query.value(6)))
+                kmSaida = QtWidgets.QTableWidgetItem(str(query.value(7)))
+
+                self.tableWidget.setItem(row, 0, codigoAlug)
+                self.tableWidget.setItem(row, 1, nomecliente)
+                self.tableWidget.setItem(row, 2, dataAlug)
+                self.tableWidget.setItem(row, 3, dataPrazo)
+                self.tableWidget.setItem(row, 4, dataDevolucao)
+                self.tableWidget.setItem(row, 5, valorAluguel)
+                self.tableWidget.setItem(row, 6, valorMulta)
+                self.tableWidget.setItem(row, 7, kmEntrada)
+                self.tableWidget.setItem(row, 8, kmSaida)
+
+                row = row + 1
+        self.edtPesquisa.setText('')
+    def PesquisarTodosAluguel(self):
+        aluguel = AluguelCTR
+        query = aluguel.PesquisarTodosAluguel()
+
+        while (self.tableWidget.rowCount() > 0):
+            self.tableWidget.removeRow(0)
+
+        row = 0
+        while query.next():
+            self.tableWidget.insertRow(row)
+            codigoAlug = QtWidgets.QTableWidgetItem(str(query.value(0)))
+            nomecliente = QtWidgets.QTableWidgetItem(str(query.value(10)))
+            dataAlug = QtWidgets.QTableWidgetItem(str(query.value(1)))
+            dataPrazo = QtWidgets.QTableWidgetItem(str(query.value(2)))
+            dataDevolucao = QtWidgets.QTableWidgetItem(str(query.value(3)))
+            valorAluguel = QtWidgets.QTableWidgetItem(str(query.value(4)))
+            valorMulta = QtWidgets.QTableWidgetItem(str(query.value(5)))
+            kmEntrada = QtWidgets.QTableWidgetItem(str(query.value(6)))
+            kmSaida = QtWidgets.QTableWidgetItem(str(query.value(7)))
+
+            self.tableWidget.setItem(row, 0, codigoAlug)
+            self.tableWidget.setItem(row, 1, nomecliente)
+            self.tableWidget.setItem(row, 2, dataAlug)
+            self.tableWidget.setItem(row, 3, dataPrazo)
+            self.tableWidget.setItem(row, 4, dataDevolucao)
+            self.tableWidget.setItem(row, 5, valorAluguel)
+            self.tableWidget.setItem(row, 6, valorMulta)
+            self.tableWidget.setItem(row, 7, kmEntrada)
+            self.tableWidget.setItem(row, 8, kmSaida)    
+
+            row = row + 1
     def setupUi(self, FrmPesqAluguel):
         FrmPesqAluguel.setObjectName("FrmPesqAluguel")
         FrmPesqAluguel.resize(519, 365)
@@ -34,6 +121,8 @@ class Ui_FrmPesqAluguel(object):
         self.edtPesquisa = QtWidgets.QLineEdit(self.groupBox)
         self.edtPesquisa.setGeometry(QtCore.QRect(180, 40, 221, 20))
         self.edtPesquisa.setObjectName("edtPesquisa")
+
+        #botão pesquisa
         self.btnPesquisa = QtWidgets.QPushButton(self.groupBox)
         self.btnPesquisa.setGeometry(QtCore.QRect(404, 10, 91, 51))
         self.btnPesquisa.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -42,6 +131,8 @@ class Ui_FrmPesqAluguel(object):
         self.btnPesquisa.setIcon(icon1)
         self.btnPesquisa.setIconSize(QtCore.QSize(30, 30))
         self.btnPesquisa.setObjectName("btnPesquisa")
+        #pesquisar click
+        self.btnPesquisa.clicked.connect(lambda: self.PesquisarAluguel(self.edtPesquisa.text(), self.cbPesquisa.currentText()))
         self.tableWidget = QtWidgets.QTableWidget(FrmPesqAluguel)
         self.tableWidget.setGeometry(QtCore.QRect(10, 80, 501, 192))
         self.tableWidget.setObjectName("tableWidget")
@@ -65,9 +156,17 @@ class Ui_FrmPesqAluguel(object):
         self.tableWidget.setHorizontalHeaderItem(7, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(8, item)
+        #modo de seleção
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+
+
         self.groupBox_2 = QtWidgets.QGroupBox(FrmPesqAluguel)
         self.groupBox_2.setGeometry(QtCore.QRect(10, 280, 501, 80))
         self.groupBox_2.setObjectName("groupBox_2")
+
+        #botão deovlver
         self.btnDevolver = QtWidgets.QPushButton(self.groupBox_2)
         self.btnDevolver.setGeometry(QtCore.QRect(394, 10, 101, 61))
         self.btnDevolver.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -76,6 +175,10 @@ class Ui_FrmPesqAluguel(object):
         self.btnDevolver.setIcon(icon2)
         self.btnDevolver.setIconSize(QtCore.QSize(30, 30))
         self.btnDevolver.setObjectName("btnDevolver")
+        #click
+        self.btnDevolver.clicked.connect(lambda: self.DevolverVeiculo())
+
+
         self.label = QtWidgets.QLabel(self.groupBox_2)
         self.label.setGeometry(QtCore.QRect(10, 20, 101, 16))
         self.label.setObjectName("label")
@@ -97,39 +200,41 @@ class Ui_FrmPesqAluguel(object):
 
         self.retranslateUi(FrmPesqAluguel)
         QtCore.QMetaObject.connectSlotsByName(FrmPesqAluguel)
+        
+        self.PesquisarTodosAluguel
 
     def retranslateUi(self, FrmPesqAluguel):
         _translate = QtCore.QCoreApplication.translate
-        FrmPesqAluguel.setWindowTitle(_translate("FrmPesqAluguel", "Lista de Aluguéis"))
-        self.groupBox.setTitle(_translate("FrmPesqAluguel", "Selecione o Tipo de Pesquisa"))
-        self.cbPesquisa.setItemText(0, _translate("FrmPesqAluguel", "Código Aluguel"))
-        self.cbPesquisa.setItemText(1, _translate("FrmPesqAluguel", "Código Cliente"))
-        self.cbPesquisa.setItemText(2, _translate("FrmPesqAluguel", "Código Veículo"))
-        self.cbPesquisa.setItemText(3, _translate("FrmPesqAluguel", "Nome Cliente"))
-        self.btnPesquisa.setText(_translate("FrmPesqAluguel", "Pesquisar"))
+        FrmPesqAluguel.setWindowTitle(_translate("FrmPesqAluguel", "Lista de Aluguéis", None))
+        self.groupBox.setTitle(_translate("FrmPesqAluguel", "Selecione o Tipo de Pesquisa", None))
+        self.cbPesquisa.setItemText(0, _translate("FrmPesqAluguel", "Código Aluguel", None))
+        self.cbPesquisa.setItemText(1, _translate("FrmPesqAluguel", "Código Cliente", None))
+        self.cbPesquisa.setItemText(2, _translate("FrmPesqAluguel", "Código Veículo", None))
+        self.cbPesquisa.setItemText(3, _translate("FrmPesqAluguel", "Nome Cliente", None))
+        self.btnPesquisa.setText(_translate("FrmPesqAluguel", "Pesquisar", None))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("FrmPesqAluguel", "Código Aluguel"))
+        item.setText(_translate("FrmPesqAluguel", "Código Aluguel", None))
         item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("FrmPesqAluguel", "Nome Cliente"))
+        item.setText(_translate("FrmPesqAluguel", "Nome Cliente", None))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("FrmPesqAluguel", "Data Aluguel"))
+        item.setText(_translate("FrmPesqAluguel", "Data Aluguel", None))
         item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("FrmPesqAluguel", "Data Prazo"))
+        item.setText(_translate("FrmPesqAluguel", "Data Prazo", None))
         item = self.tableWidget.horizontalHeaderItem(4)
-        item.setText(_translate("FrmPesqAluguel", "Data Devolução"))
+        item.setText(_translate("FrmPesqAluguel", "Data Devolução", None))
         item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("FrmPesqAluguel", "Valor Aluguel"))
+        item.setText(_translate("FrmPesqAluguel", "Valor Aluguel", None))
         item = self.tableWidget.horizontalHeaderItem(6)
-        item.setText(_translate("FrmPesqAluguel", "Valor Multa"))
+        item.setText(_translate("FrmPesqAluguel", "Valor Multa", None))
         item = self.tableWidget.horizontalHeaderItem(7)
-        item.setText(_translate("FrmPesqAluguel", "Km Entrada"))
+        item.setText(_translate("FrmPesqAluguel", "Km Entrada", None))
         item = self.tableWidget.horizontalHeaderItem(8)
-        item.setText(_translate("FrmPesqAluguel", "Km Saída"))
-        self.groupBox_2.setTitle(_translate("FrmPesqAluguel", "Devolver Veículo"))
-        self.btnDevolver.setText(_translate("FrmPesqAluguel", "Devolver"))
-        self.label.setText(_translate("FrmPesqAluguel", "Data Devolução"))
-        self.label_2.setText(_translate("FrmPesqAluguel", "Multa"))
-        self.label_3.setText(_translate("FrmPesqAluguel", "Km Saída"))
+        item.setText(_translate("FrmPesqAluguel", "Km Saída", None))
+        self.groupBox_2.setTitle(_translate("FrmPesqAluguel", "Devolver Veículo", None))
+        self.btnDevolver.setText(_translate("FrmPesqAluguel", "Devolver", None))
+        self.label.setText(_translate("FrmPesqAluguel", "Data Devolução", None))
+        self.label_2.setText(_translate("FrmPesqAluguel", "Multa", None))
+        self.label_3.setText(_translate("FrmPesqAluguel", "Km Saída", None))
 
 
 if __name__ == "__main__":

@@ -34,10 +34,21 @@ class Ui_frmCliente(object):
             cliente.CadastrarCliente(nome, cpf, endereco, email, telefone)
 
             msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.setText("Cliente inserido com sucesso!")
-            msg.setWindowTitle("Alterar Cliente")
+            msg.setWindowTitle("Inserir Cliente")
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msg.exec_()
+        
+        if estado== 'alterar':
+            cliente = ClienteCTR
+            cliente.AtualizarCliente(codigoCli, nome, cpf, endereco, email, telefone)
+
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setText("Cliente alterado com sucesso!")
+            msg.setWindowTitle('Alterar Cliente')
+            msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
             msg.exec_()
 
         self.edtNome.setText('')

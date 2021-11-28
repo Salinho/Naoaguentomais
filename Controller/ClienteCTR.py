@@ -29,6 +29,12 @@ class ClienteCTR:
         query = clienteDAO.PesquisarTodosClientes()
     
         return query
+
+    def PesquisarCliente(valor, tipo):
+        clienteDAO = ClienteDAO
+        query = clienteDAO.PesquisarCliente(valor, tipo)
+
+        return query
     
     def ExcluirCliente(codigoCli):
         clienteDAO = ClienteDAO
