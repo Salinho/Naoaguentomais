@@ -17,7 +17,7 @@ from View.FrmCliente import Ui_frmCliente
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
         linha = self.gridCliente.currentItem()
-        codigoCli = self.gridCliente.item(linha, 0).text()
+        codigoCli = self.gridCliente.item(linha, 0, 0).text()
         nome = self.gridCliente.item(linha, 1).text()
         cpf = self.gridCliente.item(linha, 2).text()
         endereco = self.gridCliente.item(linha, 3).text()
@@ -39,10 +39,10 @@ class Ui_frmPesqCliente(object):
         cliente.ExcluirCliente(codigoCli)
 
         msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Cliente excluído!")
         msg.setWindowTitle('Excluir Cliente')
-        msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
     
     def PesquisarCliente(self, valor, tipo):

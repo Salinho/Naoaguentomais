@@ -43,10 +43,10 @@ class Ui_frmPesqVeiculos(object):
         veiculo.ExcluirVeiculo(codigoVeic)
 
         msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Veículo Excluído!")
         msg.setWindowTitle("Excluir Veiculo")
-        msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
 
     def PesquisarVeiculo(self, valor, tipo):
@@ -85,6 +85,8 @@ class Ui_frmPesqVeiculos(object):
                 row = row + 1
         
         self.edtPesquisa.setText('')
+
+
     def PesquisarTodosVeiculos(self):
         veiculo = VeiculoCTR
         query = veiculo.PesquisarTodosVeiculos()

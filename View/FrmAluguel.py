@@ -16,9 +16,9 @@ from Controller.VeiculoCTR import VeiculoCTR
 class Ui_FrmAluguel(object):
     #click botão salvar
     def btnSalvar_Click(self):
-        linha = self.gridCliente.currentItem().row()
+        linha = self.gridCliente.currentItem()
         codigoCli = self.gridCliente.item(linha, 0).text()
-        linha = self.gridVeiculo.currentItem().row()
+        linha = self.gridVeiculo.currentItem()
         codigoVeic = self.gridVeiculo.item(linha, 0).text()
 
         DataAluguel = self.EdtDataAluguel.text()
@@ -33,7 +33,7 @@ class Ui_FrmAluguel(object):
         aluguel.CadastrarAluguel(DataAluguel, DataPrazo, DataDevolucao, ValorAluguel, ValorMulta, kmEntrada, kmSaida, codigoCli, codigoVeic)
 
         msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Aluguel cadastrado com sucesso!")
         msg.setWindowTitle("Cadastro de Aluguel")
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
