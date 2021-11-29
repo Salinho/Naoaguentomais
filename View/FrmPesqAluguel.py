@@ -103,7 +103,7 @@ class Ui_FrmPesqAluguel(object):
             row = row + 1
     def setupUi(self, FrmPesqAluguel):
         FrmPesqAluguel.setObjectName("FrmPesqAluguel")
-        FrmPesqAluguel.resize(519, 365)
+        FrmPesqAluguel.setFixedSize(519, 365)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/btnListAluguel.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmPesqAluguel.setWindowIcon(icon)

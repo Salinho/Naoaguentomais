@@ -40,7 +40,7 @@ class Ui_frmCliente(object):
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
         
-        if estado== 'alterar':
+        if estado=='alterar':
             cliente = ClienteCTR
             cliente.AtualizarCliente(codigoCli, nome, cpf, endereco, email, telefone)
 

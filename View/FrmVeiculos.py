@@ -68,7 +68,7 @@ class Ui_frmVeiculos(object):
                                      kmAtual, valorDiaria, tipoVeiculo)
 
             msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.setText("Veículo alterado com sucesso!")
             msg.setWindowTitle("Alterar Veículo")
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)

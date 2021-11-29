@@ -173,7 +173,8 @@ class Ui_FrmAluguel(object):
 
     def setupUi(self, FrmAluguel):
         FrmAluguel.setObjectName("FrmAluguel")
-        FrmAluguel.resize(521, 557)
+        #fixar tela
+        FrmAluguel.setFixedSize(521, 557)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmAluguel.setWindowIcon(icon)
@@ -274,6 +275,7 @@ class Ui_FrmAluguel(object):
         self.gridCliente.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()      
         #modo de seleção
         self.gridCliente.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
         self.gridCliente.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
