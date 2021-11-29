@@ -172,7 +172,8 @@ class Ui_FrmAluguel(object):
 
 
     def setupUi(self, FrmAluguel):
-        FrmAluguel.setObjectName("FrmAluguel")
+        
+        self.FrmAluguel.setObjectName("FrmAluguel")
         #fixar tela
         FrmAluguel.setFixedSize(521, 557)
         icon = QtGui.QIcon()
@@ -347,7 +348,7 @@ class Ui_FrmAluguel(object):
         self.btnSalvar.setGeometry(QtCore.QRect(430, 490, 81, 61))
         self.btnSalvar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagenssave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSalvar.setIcon(icon2)
         self.btnSalvar.setIconSize(QtCore.QSize(30, 30))
         self.btnSalvar.setObjectName("btnSalvar")

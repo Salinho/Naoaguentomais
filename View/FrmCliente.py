@@ -58,7 +58,7 @@ class Ui_frmCliente(object):
         self.edtTelefone.setText('')    
 
     def setupUi(self, frmCliente, estado, codigoCli):
-        frmCliente.setObjectName("frmCliente")
+        frmCliente.setObjectName("FrmCliente")
 
         #desabilitar aumentar e diminuir tela
         frmCliente.setFixedSize(532, 269)

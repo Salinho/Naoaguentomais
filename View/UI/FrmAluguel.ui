@@ -493,7 +493,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../../../../TesteProjeto/Imagens/save.png</normaloff>../../../../../../TesteProjeto/Imagens/save.png</iconset>
+     <normaloff>../../Imagens/save.png</normaloff>../../Imagens/save.png</iconset>
    </property>
    <property name="iconSize">
     <size>

@@ -28,8 +28,8 @@ class ClienteDAO:
         query = QSqlQuery()
         query.prepare("UPDATE Cliente SET Nome = '"+cliente.Nome+"', CPF = '"+cliente.CPF
                       +"', Endereco = '"+cliente.Endereco+"', Email = '"+cliente.Email
-                      +"', Telefone = '"+cliente.Telefone
-                      +"' WHERE CodigoCli = "+codigoCli)
+                      +"', Telefone = '" + cliente.Telefone
+                      +"' WHERE CodigoCli = " + codigoCli)
         query.exec_()
         db.commit()
 

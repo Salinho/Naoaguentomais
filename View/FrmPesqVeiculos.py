@@ -216,7 +216,7 @@ class Ui_frmPesqVeiculos(object):
 
     def retranslateUi(self, frmPesqVeiculos):
         _translate = QtCore.QCoreApplication.translate
-        frmPesqVeiculos.setWindowTitle(_translate("frmPesqVeiculos", "Lista de Cliente"))
+        frmPesqVeiculos.setWindowTitle(_translate("frmPesqVeiculos", "Lista de Veiculos"))
         item = self.gridVeiculos.horizontalHeaderItem(0)
         item.setText(_translate("frmPesqVeiculos", "Código"))
         item = self.gridVeiculos.horizontalHeaderItem(1)

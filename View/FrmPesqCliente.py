@@ -6,7 +6,7 @@ from View.FrmCliente import Ui_frmCliente
 
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
-        linha = self.gridCliente.currentItem()
+        linha = self.gridCliente.currentItem().row()
         codigoCli = self.gridCliente.item(linha, 0).text()
         nome = self.gridCliente.item(linha, 1).text()
         cpf = self.gridCliente.item(linha, 2).text()
@@ -94,6 +94,7 @@ class Ui_frmPesqCliente(object):
 
 
     def setupUi(self, frmPesqCliente):
+        
         frmPesqCliente.setObjectName("frmPesqCliente")
 
         #janela fixa
