@@ -60,6 +60,7 @@ class Ui_frmVeiculos(object):
             msg.setWindowTitle("Inserir Veículo")
             msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
+            
         if estado=='alterar':
             
             veiculo = VeiculoCTR

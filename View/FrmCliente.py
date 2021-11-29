@@ -45,10 +45,10 @@ class Ui_frmCliente(object):
             cliente.AtualizarCliente(codigoCli, nome, cpf, endereco, email, telefone)
 
             msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.information)
+            msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.setText("Cliente alterado com sucesso!")
             msg.setWindowTitle('Alterar Cliente')
-            msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
 
         self.edtNome.setText('')

@@ -17,7 +17,7 @@ from View.FrmCliente import Ui_frmCliente
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
         linha = self.gridCliente.currentItem()
-        codigoCli = self.gridCliente.item(linha, 0, 0).text()
+        codigoCli = self.gridCliente.item(linha, 0).text()
         nome = self.gridCliente.item(linha, 1).text()
         cpf = self.gridCliente.item(linha, 2).text()
         endereco = self.gridCliente.item(linha, 3).text()
@@ -75,9 +75,6 @@ class Ui_frmPesqCliente(object):
                 row = row + 1
         
         self.edtPesquisa.setText('')
-
-    def PesquisarCliente(self, valor, tipo):
-        pass
 
     def PesquisarTodosClientes(self):
         cliente = ClienteCTR

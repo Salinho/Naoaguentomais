@@ -25,10 +25,10 @@ class Ui_FrmPesqAluguel(object):
         aluguelCTR.DevolverVeiculo(codigoAlug, dataDevol, valorMulta, kmSaida)
 
         msg = QtWidgets.QMessageBox()
-        msg.setIcon(QtWidgets.QMessageBox.information)
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText('Veiculo devolvido')
         msg.setWindowTitle('Devovler Veículo')
-        msg.setStandardButtons(QtWidgets.QMessageBox.standardButton.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
 
         self.edtDevolucao.setText('')

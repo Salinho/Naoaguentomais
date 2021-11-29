@@ -232,7 +232,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../../../TesteProjeto/View/Imagens/BGImg.png</pixmap>
+     <pixmap>../../Imagens/FundoInicio.jpg</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignJustify|Qt::AlignVCenter</set>
