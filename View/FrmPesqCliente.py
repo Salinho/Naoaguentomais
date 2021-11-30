@@ -6,14 +6,14 @@ from View.FrmCliente import Ui_frmCliente
 
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
-        linha = self.gridCliente.currentItem()
+        linha = self.gridCliente.currentItem().row()
         codigoCli = self.gridCliente.item(linha, 0).text()
         nome = self.gridCliente.item(linha, 1).text()
         cpf = self.gridCliente.item(linha, 2).text()
         endereco = self.gridCliente.item(linha, 3).text()
         email = self.gridCliente.item(linha, 4).text()
         telefone = self.gridCliente.item(linha, 5).text()
-    
+
         self.frmCliente = QtWidgets.QMainWindow()
         self.ui = Ui_frmCliente()
         self.ui.setupUi(self.frmCliente, 'alterar', codigoCli)

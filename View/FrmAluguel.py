@@ -173,7 +173,7 @@ class Ui_FrmAluguel(object):
 
     def setupUi(self, FrmAluguel):
         
-        self.FrmAluguel.setObjectName("FrmAluguel")
+        FrmAluguel.setObjectName("FrmAluguel")
         #fixar tela
         FrmAluguel.setFixedSize(521, 557)
         icon = QtGui.QIcon()
