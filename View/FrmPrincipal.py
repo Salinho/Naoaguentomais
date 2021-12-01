@@ -111,7 +111,7 @@ class Ui_FrmPrincipal(object):
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(".../../Imagens/FrmIcon_Car.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.btnVeiculo.setIcon(icon3)
-        self.btnVeiculo.setIconSize(QtCore.QSize(40, 40))
+        self.btnVeiculo.setIconSize(QtCore.QSize(30, 30))
         self.btnVeiculo.setObjectName("btnVeiculo")
         #veiculo click
         self.btnVeiculo.clicked.connect(self.FrmVeiculo_Click)

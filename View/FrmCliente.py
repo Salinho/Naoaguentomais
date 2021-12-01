@@ -63,7 +63,7 @@ class Ui_frmCliente(object):
         #desabilitar aumentar e diminuir tela
         frmCliente.setFixedSize(532, 269)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/View/Imagens/btnCadCli.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnCadCli.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         frmCliente.setWindowIcon(icon)
         self.groupBox = QtWidgets.QGroupBox(frmCliente)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 511, 161))
@@ -107,7 +107,7 @@ class Ui_frmCliente(object):
         self.btnSalvar.setGeometry(QtCore.QRect(400, 10, 101, 61))
         self.btnSalvar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(".../../Imagens/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSalvar.setIcon(icon1)
         self.btnSalvar.setIconSize(QtCore.QSize(35, 35))
         self.btnSalvar.setObjectName("btnSalvar")

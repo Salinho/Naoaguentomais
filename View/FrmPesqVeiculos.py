@@ -174,7 +174,7 @@ class Ui_frmPesqVeiculos(object):
         self.btnPesquisar = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnPesquisar.setGeometry(QtCore.QRect(700, 90, 111, 51))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/Lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(".../../Imagens/lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         #botão pesquisar
         self.btnPesquisar.setIcon(icon)
@@ -191,7 +191,7 @@ class Ui_frmPesqVeiculos(object):
         self.btnExcluir = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnExcluir.setGeometry(QtCore.QRect(720, 450, 91, 51))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/delete-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(".../../Imagens/delete-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnExcluir.setIcon(icon1)
         self.btnExcluir.setIconSize(QtCore.QSize(30, 30))
         self.btnExcluir.setObjectName("btnExcluir")
@@ -202,7 +202,7 @@ class Ui_frmPesqVeiculos(object):
         self.btnAlterar = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnAlterar.setGeometry(QtCore.QRect(610, 450, 101, 51))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/editar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(".../../Imagens/editar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnAlterar.setIcon(icon2)
         self.btnAlterar.setIconSize(QtCore.QSize(35, 35))
         self.btnAlterar.setObjectName("btnAlterar")

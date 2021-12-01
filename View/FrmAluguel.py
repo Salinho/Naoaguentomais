@@ -16,9 +16,9 @@ from Controller.VeiculoCTR import VeiculoCTR
 class Ui_FrmAluguel(object):
     #click botão salvar
     def btnSalvar_Click(self):
-        linha = self.gridCliente.currentItem()
+        linha = self.gridCliente.currentItem().row()
         codigoCli = self.gridCliente.item(linha, 0).text()
-        linha = self.gridVeiculo.currentItem()
+        linha = self.gridVeiculo.currentItem().row()
         codigoVeic = self.gridVeiculo.item(linha, 0).text()
 
         DataAluguel = self.EdtDataAluguel.text()
@@ -177,7 +177,7 @@ class Ui_FrmAluguel(object):
         #fixar tela
         FrmAluguel.setFixedSize(521, 557)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmAluguel.setWindowIcon(icon)
         self.groupBox = QtWidgets.QGroupBox(FrmAluguel)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 501, 111))
@@ -251,7 +251,7 @@ class Ui_FrmAluguel(object):
         self.btnPesqCliente.setGeometry(QtCore.QRect(400, 30, 91, 31))
         self.btnPesqCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagens/lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(".../../Imagens/lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnPesqCliente.setIcon(icon1)
         self.btnPesqCliente.setIconSize(QtCore.QSize(30, 30))
         self.btnPesqCliente.setObjectName("btnPesqCliente")
@@ -348,7 +348,7 @@ class Ui_FrmAluguel(object):
         self.btnSalvar.setGeometry(QtCore.QRect(430, 490, 81, 61))
         self.btnSalvar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../../../../../../TesteProjeto/Imagenssave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(".../../Imagens/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSalvar.setIcon(icon2)
         self.btnSalvar.setIconSize(QtCore.QSize(30, 30))
         self.btnSalvar.setObjectName("btnSalvar")
