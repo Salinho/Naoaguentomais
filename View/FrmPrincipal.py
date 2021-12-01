@@ -64,7 +64,7 @@ class Ui_FrmPrincipal(object):
         FrmPrincipal.setObjectName("FrmPrincipal")
         FrmPrincipal.setWindowModality(QtCore.Qt.NonModal)
 
-        #desablitiar
+        #desablitiar tela
         FrmPrincipal.setFixedSize(803, 422)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../Imagens/FrmIcon_Car.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -78,11 +78,12 @@ class Ui_FrmPrincipal(object):
         self.columnView.setObjectName("columnView")
         self.columnView.setStyleSheet(u"background-color: rgb(186, 240, 236);")
 
-        #btn alugar
+        #botão alugar
         self.btnAlugar = QtWidgets.QPushButton(self.centralwidget)
         self.btnAlugar.setGeometry(QtCore.QRect(10, 10, 131, 81))
         self.btnAlugar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnAlugar.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.btnAlugar.setStyleSheet("background-color: rgb(153, 197, 193);")
         self.btnAlugar.setAutoFillBackground(False)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(".../../Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -92,24 +93,26 @@ class Ui_FrmPrincipal(object):
         #alugar click event
         self.btnAlugar.clicked.connect(self.FrmAluguel_Click)
 
-        #cliente
+        #botão cliente
         self.btnCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnCliente.setGeometry(QtCore.QRect(140, 10, 131, 81))
         self.btnCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnCliente.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(".../../Imagens/btnCadCli.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCliente.setIcon(icon2)
         self.btnCliente.setIconSize(QtCore.QSize(30, 30))
         self.btnCliente.setObjectName("btnCliente")
-        #btncliente click
+        #btn cliente click
         self.btnCliente.clicked.connect(self.FrmCliente_Click)
         
         #botão veiculo
         self.btnVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnVeiculo.setGeometry(QtCore.QRect(270, 10, 131, 81))
         self.btnVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnVeiculo.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(".../../Imagens/FrmIcon_Car.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon3.addPixmap(QtGui.QPixmap(".../../Imagens/64620.jpg"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.btnVeiculo.setIcon(icon3)
         self.btnVeiculo.setIconSize(QtCore.QSize(30, 30))
         self.btnVeiculo.setObjectName("btnVeiculo")
@@ -120,9 +123,10 @@ class Ui_FrmPrincipal(object):
         self.btnListCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnListCliente.setGeometry(QtCore.QRect(400, 10, 131, 81))
         self.btnListCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnListCliente.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(".../../Imagens/btnListClientes.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon4.addPixmap(QtGui.QPixmap(".../../Imagens/btnListClientes.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon4.addPixmap(QtGui.QPixmap(".../../Imagens/1212.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(".../../Imagens/1212.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.btnListCliente.setIcon(icon4)
         self.btnListCliente.setIconSize(QtCore.QSize(30, 30))
         self.btnListCliente.setObjectName("btnListCliente")
@@ -133,8 +137,9 @@ class Ui_FrmPrincipal(object):
         self.btnListVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnListVeiculo.setGeometry(QtCore.QRect(530, 10, 131, 81))
         self.btnListVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnListVeiculo.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(".../../Imagens/btnListVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(".../../Imagens/285181.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnListVeiculo.setIcon(icon5)
         self.btnListVeiculo.setIconSize(QtCore.QSize(30, 30))
         self.btnListVeiculo.setObjectName("btnListVeiculo")
@@ -145,6 +150,7 @@ class Ui_FrmPrincipal(object):
         self.btnListAluguel = QtWidgets.QPushButton(self.centralwidget)
         self.btnListAluguel.setGeometry(QtCore.QRect(660, 10, 131, 81))
         self.btnListAluguel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnListAluguel.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap(".../../Imagens/btnListAluguel.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnListAluguel.setIcon(icon6)

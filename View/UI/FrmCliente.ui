@@ -17,6 +17,9 @@
    <iconset>
     <normaloff>../../../../../../TesteProjeto/View/Imagens/btnCadCli.png</normaloff>../../../../../../TesteProjeto/View/Imagens/btnCadCli.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(153, 197, 193);</string>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -25,6 +28,9 @@
      <width>511</width>
      <height>161</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="title">
     <string/>
@@ -102,6 +108,9 @@
       <width>321</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="edtCPF">

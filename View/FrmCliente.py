@@ -65,6 +65,7 @@ class Ui_frmCliente(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnCadCli.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         frmCliente.setWindowIcon(icon)
+        frmCliente.setStyleSheet("background-color: rgb(153, 197, 193);")
         self.groupBox = QtWidgets.QGroupBox(frmCliente)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 511, 161))
         self.groupBox.setTitle("")

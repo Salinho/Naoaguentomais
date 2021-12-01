@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from Controller.VeiculoCTR import VeiculoCTR
 
 class Ui_frmVeiculos(object):
-     #PREENCHER OS CAMPOS PARA ALTERAÇÃO
+     #preenche os campos automaticamente para alterar
     def PreencherAlterar(self, modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo):
         self.edtModelo.setText(modelo)
         self.edtMarca.setText(marca)
@@ -30,7 +30,7 @@ class Ui_frmVeiculos(object):
             self.rbAlugado.setChecked(False)
 
 
-    #CLICK BTN_SALVAR
+    #botão salvar click
     def btnSalvar_Click(self, estado, codigoVeic):
         modelo = self.edtModelo.text()
         marca = self.edtMarca.text()
@@ -49,7 +49,7 @@ class Ui_frmVeiculos(object):
         tipoVeiculo = self.edtTipo.text()
 
 
-        #VERIFICA O ESTADO INSERIR/ALTERAR PARA CHAMAR A FUNÇAO APROPRIADA
+        #verifica se deve inserir ou alterar
         if estado=='inserir':
             veiculo = VeiculoCTR
             veiculo.CadastrarVeiculo(modelo, marca, anoModelo, placa, alugado, kmAtual, valorDiaria, tipoVeiculo)
@@ -88,6 +88,7 @@ class Ui_frmVeiculos(object):
         
         #desabilitar tamanho tela
         frmVeiculos.setFixedSize(543, 318)
+        frmVeiculos.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         frmVeiculos.setWindowIcon(icon)

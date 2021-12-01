@@ -179,6 +179,7 @@ class Ui_FrmAluguel(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnAlugaVeiculo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmAluguel.setWindowIcon(icon)
+        FrmAluguel.setStyleSheet("background-color: rgb(153, 197, 193);")
         self.groupBox = QtWidgets.QGroupBox(FrmAluguel)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 501, 111))
         self.groupBox.setTitle("")

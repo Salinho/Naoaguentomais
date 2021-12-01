@@ -16,6 +16,7 @@ from View.FrmVeiculos import Ui_frmVeiculos
 
 class Ui_frmPesqVeiculos(object):
     def AlterarVeiculo_Click(self):
+        #define a linha e começa a contagem de fileiras
         linha = self.gridVeiculos.currentItem().row()
         codigoVeic = self.gridVeiculos.item(linha, 0).text()
         modelo = self.gridVeiculos.item(linha, 1).text()
@@ -27,6 +28,7 @@ class Ui_frmPesqVeiculos(object):
         valorDiaria = self.gridVeiculos.item(linha, 7).text()
         tipoVeiculo = self.gridVeiculos.item(linha, 8).text()
 
+        #Abre a alteração de Veiculos
         self.frmVeiculos = QtWidgets.QMainWindow()
         self.ui = Ui_frmVeiculos()
         self.ui.setupUi(self.frmVeiculos, 'alterar', codigoVeic)
@@ -42,6 +44,7 @@ class Ui_frmPesqVeiculos(object):
         veiculo = VeiculoCTR
         veiculo.ExcluirVeiculo(codigoVeic)
 
+        #abre para excluir veiculos
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Veículo Excluído!")
@@ -50,9 +53,11 @@ class Ui_frmPesqVeiculos(object):
         msg.exec_()
 
     def PesquisarVeiculo(self, valor, tipo):
+        #Para achar o veiculo somente se ele estiver como tipo disponível
         if (valor == '') and (tipo !='Disponível') and (tipo!='Alugado'):
             self.PesquisarTodosVeiculos()
         else:
+            #chama o controlador para a função pesquisar veiculo
             veiculo = VeiculoCTR
             query = veiculo.PesquisarVeiculo(valor, tipo)
 
@@ -125,6 +130,7 @@ class Ui_frmPesqVeiculos(object):
 
         #desabilitar tela
         frmPesqVeiculos.setFixedSize(820, 504)
+        frmPesqVeiculos.setStyleSheet("background-color: rgb(153, 197, 193);")
         self.gridVeiculos = QtWidgets.QTableWidget(frmPesqVeiculos)
         self.gridVeiculos.setGeometry(QtCore.QRect(0, 150, 811, 291))
         self.gridVeiculos.setObjectName("gridVeiculos")

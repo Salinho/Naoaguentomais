@@ -65,7 +65,8 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
     </property>
     <property name="text">
      <string>Alugar Veículo</string>
@@ -93,6 +94,10 @@
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
+    </property>
     <property name="text">
      <string>Cadastrar Cliente</string>
     </property>
@@ -118,6 +123,10 @@
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
     </property>
     <property name="text">
      <string>Cadastrar Veículo</string>
@@ -146,6 +155,10 @@
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
+    </property>
     <property name="text">
      <string>Listar Clientes</string>
     </property>
@@ -173,6 +186,10 @@
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
+    </property>
     <property name="text">
      <string>Listar Veículos</string>
     </property>
@@ -198,6 +215,10 @@
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 197, 193);</string>
     </property>
     <property name="text">
      <string>Listar Alugueis</string>

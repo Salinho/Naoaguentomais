@@ -104,6 +104,7 @@ class Ui_FrmPesqAluguel(object):
     def setupUi(self, FrmPesqAluguel):
         FrmPesqAluguel.setObjectName("FrmPesqAluguel")
         FrmPesqAluguel.setFixedSize(519, 365)
+        FrmPesqAluguel.setStyleSheet("background-color: rgb(153, 197, 193);")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".../../Imagens/btnListAluguel.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmPesqAluguel.setWindowIcon(icon)

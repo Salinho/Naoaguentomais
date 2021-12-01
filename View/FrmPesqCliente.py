@@ -103,6 +103,7 @@ class Ui_frmPesqCliente(object):
 
         #grid cliente
         self.gridCliente = QtWidgets.QTableWidget(frmPesqCliente)
+        frmPesqCliente.setStyleSheet("background-color: rgb(153, 197, 193);")
         self.gridCliente.setGeometry(QtCore.QRect(20, 150, 621, 291))
         self.gridCliente.setObjectName("gridCliente")
         self.gridCliente.setColumnCount(6)
